@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card</title>
+    <style>
+        .product-card{
+            width: 250px;
+            border: 1px solid gray;
+            display: block;
+            margin: 50px auto ;
+            box-shadow: 0 0 10px rgb(136, 133, 133);
+            border-radius: 10px;
+            padding: 0 20px;
+        }
+        .product-img{
+            height: 200px;
+            display: block;
+            margin: 20px auto ;
+        }
+        .product-title{
+            font-size: 20px;
+        }
+        .product-price{
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btn-add-cart{
+            display: block;
+            margin: 30px auto;
+            font-size: 20px;
+            padding:6px 30px ;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 15px;
+           
+        }
+        .btn-add-cart:hover{
+            cursor: pointer;
+            background-color: green;
+            color: black;
+        }
+        .quantity-container{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .btn-quantity{
+            height: 30px;
+            cursor: pointer;
+        }
+        .product-quantity{
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <img src="watch-img.jpg" class="product-img">
+        <h1 class="product-title">Fire-Boltt Smartwatch</h1>
+        <p class="product-description"> Bluetooth Calling Smartwatch, AI Voice Assistant, Metal Body with 120+ Sports Modes, Heart Rate Monitoring</p>
+         <p class="product-price">Price: 1,999/-Rs</p>
+         
+         <div class="quantity-container">
+         <img src="minus.png" class="btn-quantity" onclick="decreaseQuantity()">
+         <span class="product-quantity" id="quantity-text">1</span>
+         <img src="plus.png" class="btn-quantity" onclick="increaseQuantity()">
+        </div>
+         <button type="button" class="btn-add-cart">
+            Add to cart
+         </button>
+
+    </div>
+    <script>
+         const quantityElement=document.getElementById("quantity-text");
+     function increaseQuantity(){
+         let quantity=parseInt(quantityElement.innerText);
+         if(quantity < 6){
+         
+         quantityElement.innerText= ++quantity;   
+         }
+         else{
+            alert("you can't add more than 6 items")
+         }
+     }
+     function decreaseQuantity(){
+         let quantity=parseInt(quantityElement.innerText);
+        if(quantity>0){
+         
+         quantityElement.innerText= --quantity;   
+        }
+        else{
+            alert("you can't add less than 1 item")
+        }
+     }
+    </script>
+</body>
+</html>
